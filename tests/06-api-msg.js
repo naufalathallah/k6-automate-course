@@ -8,7 +8,7 @@ export let options = {
 
 export default function () {
   let res = http.get(
-    "https://run.mocky.io/v3/8fc07b7f-f228-4f41-ad9e-e1091dc52e31"
+    "https://run.mocky.io/v3/be3916fc-6347-4ac4-8bcb-9f40c4b3d158"
   );
 
   console.log(
@@ -17,6 +17,6 @@ export default function () {
 
   check(res, {
     "response code was 200": (res) => res.status == 200,
-    "body size was 0 bytes": (res) => res.body.length == 0,
+    "body size was 43 bytes": (res) => res.body.length == 43,
   });
 }
