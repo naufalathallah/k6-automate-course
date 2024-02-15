@@ -2,7 +2,7 @@ import http from "k6/http";
 import { check } from "k6";
 
 export let options = {
-  vus: 5,
+  vus: 1,
   duration: "2s",
 };
 
@@ -20,5 +20,8 @@ export default function () {
 
   parsedBody.forEach((element) => {
     console.log(`name is ${element.name}`);
+    console.log(`email is ${element.email}`);
+    console.log(`job is ${element.job}`);
+    console.log(`location is ${element.location}`);
   });
 }
