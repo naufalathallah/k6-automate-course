@@ -13,15 +13,21 @@ export let options = {
 export let errorRate = new Rate("errors");
 
 export default function () {
-  let res = http.get(
-    "https://run.mocky.io/v3/be3916fc-6347-4ac4-8bcb-9f40c4b3d158"
-  );
+  var url = "https://run.mocky.io/v3/be3916fc-6347-4ac4-8bcb-9f40c4b3d158";
+  var headerParam = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = http.get(url, headerParam);
 
   console.log(
     `response body length ${res.body.length} for VU= ${__VU} ITER= ${__ITER}`
   );
 
   let parsedBody = JSON.parse(res.body);
+  console.log(`response body was ${JSON.stringify(parsedBody)}`);
 
   let chckCode = check(res, {
     "response code was 200": (res) => res.status == 200,
